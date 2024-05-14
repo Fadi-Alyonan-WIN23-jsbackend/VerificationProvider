@@ -13,6 +13,7 @@ var host = new HostBuilder()
         services.ConfigureFunctionsApplicationInsights();
         services.AddDbContext<DataContext>(x => x.UseSqlServer(Environment.GetEnvironmentVariable("VerificationRequestDatabase")));
         services.AddScoped<IVerificationService, VerificationService>();
+        services.AddScoped<IValidateVerificationCodeService, ValidateVerificationCodeService>();
     })
     .Build();
 
